@@ -18,7 +18,7 @@ public class Person implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@Column(name = "first_name", nullable = false, length = 80)
 	private String firstName;
@@ -27,7 +27,7 @@ public class Person implements Serializable{
 	private String lastName;
 	
 	@Column(nullable = false, length = 100)
-	private String adress;
+	private String address;
 	
 	@Column(nullable = false, length = 8)
 	private String gender;
@@ -38,7 +38,7 @@ public class Person implements Serializable{
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.adress = adress;
+		this.address = adress;
 		this.gender = gender;
 	}
 
@@ -66,12 +66,12 @@ public class Person implements Serializable{
 		this.lastName = lastName;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String adress) {
+		this.address = adress;
 	}
 
 	public String getGender() {

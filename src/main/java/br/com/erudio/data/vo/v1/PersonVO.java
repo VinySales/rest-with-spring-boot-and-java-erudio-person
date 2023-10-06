@@ -10,24 +10,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-public class PersonVO implements Serializable{
+public class PersonVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	private long id;
+
+	private Long id;
 	private String firstName;
 	private String lastName;
-	private String adress;
+	private String address;
 	private String gender;
-	
-	public PersonVO() {}
 
-	public PersonVO(String firstName, String lastName, String adress, String gender) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.adress = adress;
-		this.gender = gender;
+	public PersonVO() {
 	}
 
 	public long getId() {
@@ -54,12 +47,12 @@ public class PersonVO implements Serializable{
 		this.lastName = lastName;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String adress) {
+		this.address = adress;
 	}
 
 	public String getGender() {

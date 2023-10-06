@@ -21,33 +21,32 @@ import br.com.erudio.services.PersonServices;
 @RequestMapping("/person")
 public class PersonController {
 
-	@Autowired
-	private PersonServices service;
+    @Autowired
+    private PersonServices service;
 
-	// http://localhost:8080/person/1
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVO findById(@PathVariable(value = "id") Long id) {
-		return service.findById(id);
-	}
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PersonVO> findAll() {
+        return service.findAll();
+    }
 
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<PersonVO> findallPerson() {
-		return service.findAll();
-	}
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public PersonVO findById(@PathVariable(value = "id") Long id) {
+        return service.findById(id);
+    }
 
-	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVO create(@RequestBody PersonVO person) {
-		return service.create(person);
-	}
-	
-	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVO update(@RequestBody PersonVO person) {
-		return service.update(person);
-	}
-	
-	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
-		service.delete(id);
-		return ResponseEntity.noContent().build();
-	}
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PersonVO create(@RequestBody PersonVO person) {
+        return service.create(person);
+    }
+
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PersonVO update(@RequestBody PersonVO person) {
+        return service.update(person);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
